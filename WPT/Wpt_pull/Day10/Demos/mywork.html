@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <input type="button" value="Add data" onclick="myfunc()">
+    <input type="text" id="mybook">
+    <center>
+        <table border="1" id="mytable">
+            
+        </table>
+    </center>
+    <!-- <img src="" style="width: 100%; height: 100%;" alt=""> -->
+    
+</head>
+<body>
+    <script>
+        function myfunc(){
+            debugger;
+            var myBook = document.getElementById("mybook").value;
+            var url = "https://www.googleapis.com/books/v1/volumes?q=" + myBook;
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+                if(helper.readyState==4 && helper.status==200){
+                    var dataInStr =  helper.responseText;
+                    var refToMyTable = document.getElementById("mytable");
+                    var data = JSON.parse(dataInStr);
+                    refToMyTable.innerHTML = `
+                    
+                    <thead>
+                        <tr>
+                            <th>
+                                ${Title}
+                            </th>
+                            <th>
+                                ${Authors}
+                            </th>
+                            <th>
+                                ${Images}
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    `;
+                    for(var i =0; i<data.items.length; i++){
+                        var currData = data.items[i];
+                    
+                        // var currImg = currData.volumeInfo.imageLinks.thumbnail;
+
+                        // refToMyTable.innerHTML = "";
+
+                        refToMyTable.innerHTML = 
+                        refToMyTable.innerHTML +
+                        `<tr>
+                            <td>
+                                ${currData.volumeInfo.title}
+                            </td>
+                            <td>
+                                ${currData.volumeInfo.authors}
+                            </td>
+                            <td>
+                                <img src="${currData.volumeInfo.imageLinks.smallThumbnail}" style="width: 100px; height: 100px;">
+                            </td>
+                        </tr>
+                        `    
+                        
+                    }
+                
+                }
+            }
+
+            helper.open("GET", url);
+            helper.send();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="mybutton" value="Add Row" onclick="myfunc()">
+    <center>
+        <table id="mytable" border="1">
+        
+        </table>
+    </center>
+    
+    <script>
+        function myfunc(){
+            debugger;
+            var refToMyButton = document.getElementById("mybutton");
+            
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+
+                if(helper.readyState==4 && helper.status == 200){
+                    var detData = helper.responseText;
+                    var finaldata = JSON.parse(detData);
+                    var refToMyTable = document.getElementById("mytable");
+                    refToMyTable.innerHTML = "";
+                    for(var i=0; i<finaldata.length; i++){
+                        var data = finaldata[i];
+                        refToMyTable.innerHTML = 
+                        refToMyTable.innerHTML +
+                        `<tr>
+                        <td>${data.Name}</td>
+                        <td>${data.Profile}</td>
+                        <td>${data.Id}</td>
+                        </tr>
+                        `
+                    }
+
+
+                };
+               
+
+        }
+        helper.open("GET", "myworkjason.json");
+        helper.send();
+        }
+        
+      </script>
+</body>
+</html>

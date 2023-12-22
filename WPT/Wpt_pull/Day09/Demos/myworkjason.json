@@ -1,0 +1,14 @@
+[
+    {
+        "Name" : "Aditya" , "Profile" : "Developer", "Id" : 123 , "Hobbies" : ["Cricket", "Carrom"]
+    }
+    ,
+    {
+        "Name" : "Mitesh" , "Profile" : "Jr-Developer" , "Id" : 1234  , "Hobbies" : ["Cricket"]
+    }
+    ,
+    {
+        "Name" : "Rigved" , "Profile" : "database Manager" , "Id" :12345 , "Hobbies" : ["Badminton", "Swimming"]
+    }
+]
+

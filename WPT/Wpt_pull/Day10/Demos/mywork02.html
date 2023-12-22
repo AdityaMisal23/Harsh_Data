@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <table border="1">
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                <input type="text" , id="myInput" name="Name">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Submit" id="myBut" onclick="myFunc()">
+            </td>
+        </tr>
+    </table>
+</center>
+
+
+
+<a href="" id="mya" >
+    <input type="button" onclick="myFunc2()" value="Go to 2nd page">
+</a>
+
+    
+
+<script>
+    function myFunc(){
+        debugger;
+        var refToMyInput = document.getElementById("myInput");
+        // window.localStorage.setItem("Name" , refToMyInput.value);
+        window.sessionStorage.setItem("Name" , refToMyInput.value);
+        refToMyInput.value = "";
+    }
+
+    function myFunc2(){
+        var refToMyATag = document.getElementById("mya");
+        refToMyATag.href = "my_2ndPage.html";
+    }
+</script>
+</body>
+</html>

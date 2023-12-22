@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+</head>
+<body>
+    <!-- <div>
+        <center>
+            <h1>Hello Guys</h1>
+            <button id="mybtn" value="Click me">Click me</button>
+            <input type="text" value="" id="myText">
+        </center>
+    </div> -->
+    <div style="position: absolute;">
+        <center>
+            <button id="mybtn" style="margin-left: 519px;">click me</button>
+            <div style="width: 100px; height: 100px; background-color: brown; position:absolute; z-index: 9; margin-left: 500px;" id="mydiv">1</div>
+            <div style="width: 50px; height: 50px; position: absolute; color:blueviolet; margin-left: 525px;" id="mydiv2 " >sdfgh</div>
+        </center>
+    </div>
+    <script>
+        // function Execute(){
+        //     $("#myText").val("Jay Shree Krishna");
+        // }
+        // $("#mybtn").click(Execute);
+        function explode(){
+            jQuery("#mydiv").effect("explode");
+            jQuery("#mydiv").text("Jay shree Krishna");
+        }
+        jQuery("#mybtn").click(explode);
+
+    </script>
+</body>
+</html>

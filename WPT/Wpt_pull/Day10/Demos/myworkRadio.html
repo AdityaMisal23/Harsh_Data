@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <table>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                <input type="text" name="" id="1">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                roll
+            </td>
+            <td>
+                <input type="text" name="" id="2">
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                gender
+            </td>
+            <td>
+                <div id="myDiv">
+                <input type="radio" id="3" name="gender" value="Male">male 
+                <input type="radio" id="4" name="gender" value="Female">female
+                <input type="radio" id="5" name="gender" value="Others">others
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="submit" onclick="myfunc()">
+            </td>
+        </tr>
+    </table>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+    <table border="1" id="mytable">
+        
+        
+
+    </table>
+</center>
+
+
+<script>
+    function myfunc(){
+        var reftToMyTable = document.getElementById("mytable");
+        var getGender = document.getElementById("myDiv").value;
+        var stGender;
+        if(getGender == document.getElementById("3").value){
+            stGender = document.getElementById("3").value;
+        }
+        else if(getGender == document.getElementById("4").value){
+            stGender = document.getElementById("4").value;
+        }
+        else if(getGender == document.getElementById("5").value) {
+            stGender = document.getElementById("5").value;
+
+        }
+        else{
+            stGender = "Not specified";
+        }
+
+
+        reftToMyTable.innerHTML = reftToMyTable.innerHTML +
+        `
+            <tr>
+                <td>
+                    ${document.getElementById("1").value}
+                </td>
+                <td>
+                    ${document.getElementById("2").value}
+
+                </td>
+                <td>
+                    ${document.querySelector('input[name="gender"]:checked').value}
+
+                </td>
+            </tr>
+
+        `
+    }
+</script>
+    
+</body>
+</html>
